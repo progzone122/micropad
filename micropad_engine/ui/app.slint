@@ -1,0 +1,48 @@
+import { VerticalBox, HorizontalBox, Button, ComboBox, TabWidget, GridBox } from "std-widgets.slint";
+import { TopMenu } from "components/TopMenu.slint";
+import { HotkeysTab } from "tabs/HotkeysTab.slint";
+export component AppWindow inherits Window {
+    in property <string> window_title;
+    // Device port lists
+    in property <[string]> ports_combo_model;
+    in-out property <string> ports_combo_value <=> tm.combo_value;
+    // Button actions
+    in property <[string]> actions;
+    in-out property <int> box1_1_current_index <=> ht.box1_1_current_index;
+    in-out property <int> box1_2_current_index <=> ht.box1_2_current_index;
+    in-out property <int> box1_3_current_index <=> ht.box1_3_current_index;
+    in-out property <int> box2_1_current_index <=> ht.box2_1_current_index;
+    in-out property <int> box2_2_current_index <=> ht.box2_2_current_index;
+    in-out property <int> box2_3_current_index <=> ht.box2_3_current_index;
+    in-out property <int> box3_1_current_index <=> ht.box3_1_current_index;
+    in-out property <int> box3_2_current_index <=> ht.box3_2_current_index;
+    in-out property <int> box3_3_current_index <=> ht.box3_3_current_index;
+    //
+    callback cl <=> tm.clicked;
+
+    min-width: 400px;
+    min-height: 500px;
+    title: window_title;
+    default-font-size: 20px;
+
+    VerticalLayout {
+        tm := TopMenu {
+            combo_model: ports_combo_model;
+        }
+        Rectangle {
+            TabWidget {
+                Tab {
+                    title: "Hotkeys";
+                    ht := HotkeysTab {
+                        actions: actions;
+                    }
+                }
+                Tab {
+                    title: "Backlight";
+                    VerticalLayout {
+                    }
+                }
+            }
+        }
+    }
+}

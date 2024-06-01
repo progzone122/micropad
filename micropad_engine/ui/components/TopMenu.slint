@@ -1,0 +1,34 @@
+import { HorizontalBox, ComboBox, Button } from "std-widgets.slint";
+export component TopMenu inherits Rectangle {
+    in property <[string]> combo_model;
+    in-out property <string> combo_value <=> combo.current-value;
+    callback clicked <=> button.clicked;
+
+    preferred-width: 100%;
+    background: #141414;
+    HorizontalBox {
+        alignment: start;
+        Text {
+            font-size: 20px;
+            vertical-alignment: center;
+            text: "Select device: ";
+        }
+        HorizontalBox {
+            // Device port ComboBox
+            combo := ComboBox {
+                min-width: 200px;
+                height: 40px;
+                model: combo_model;
+            }
+        }
+        HorizontalBox {
+            preferred-width: parent.width;
+            alignment: end;
+
+            button := Button {
+                text: "Write to EEPROM";
+                height: 40px;
+            }
+        }
+    }
+}

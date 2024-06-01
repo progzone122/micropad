@@ -1,0 +1,39 @@
+[package]
+name = "pad_engine"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+serialport = "4.3.0"
+slint = "1.6.0"
+serde_json = "1.0.117"
+
+[build-dependencies]
+slint-build = "1.6.0"
+
+[profile.release]
+opt-level = "s"  # Минимизация размера
+lto = "fat"     # Включение Link Time Optimization
+debug = true # Отключение отладочной информации
+codegen-units = 1  # Дополнительная оптимизация за счет компиляции всех юнитов вместе
+panic = 'abort'    # Опционально: уменьшение размера путем отключения обработки паники
+strip = true
+debug-assertions = false
+overflow-checks = false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
