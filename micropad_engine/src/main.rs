@@ -68,7 +68,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let box3_1 = hotkeys::find_key_by_index(&hotkeys, box3_1).unwrap();
         let box3_2 = hotkeys::find_key_by_index(&hotkeys, box3_2).unwrap();
         let box3_3 = hotkeys::find_key_by_index(&hotkeys, box3_3).unwrap();
-        
+
         let mut message: String = String::new();
         let mut message_b1: String = String::from("wh;1,press");
         let mut message_b2: String = String::from("2,press");

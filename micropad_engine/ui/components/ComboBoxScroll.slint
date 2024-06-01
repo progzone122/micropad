@@ -1,0 +1,64 @@
+import { HorizontalBox, ScrollView } from "std-widgets.slint";
+export component ComboBoxScroll {
+    in-out property<string> value;
+    in property<[string]> model;
+    in-out property <int> current-index;
+
+    Rectangle {
+        border-width: 2px;
+        border-color: #1b1a1a;
+        background: #222222;
+    }
+    height: 200px;
+    preferred-width: 100%;
+    HorizontalBox {
+        label := Text {
+            vertical-alignment: center;
+            horizontal-alignment: left;
+            text <=> root.value;
+            color: white;
+            horizontal-stretch: 1;
+        }
+        Text {
+            text: "▼";
+        }
+    }
+
+    TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { popup.show(); }
+    }
+
+    popup := PopupWindow {
+        x:0;
+        y: root.height;
+        width: root.width;
+        height: min(inner.preferred-height, 500px);
+        Rectangle {
+            background: #222222;
+            border-width: 2px;
+            border-color: gray;
+        }
+        ScrollView {
+            inner := VerticalLayout {
+                spacing: 6px;
+                padding: 3px;
+                for value[idx] in root.model: Rectangle {
+                    background: item-area.has-hover ? #0d0d0d : #0000;
+                    HorizontalLayout {
+                        Text {
+                            text: value;
+                        }
+                    }
+                    item-area := TouchArea {
+                        clicked => {
+                            root.value = value;
+                            root.current-index = idx;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

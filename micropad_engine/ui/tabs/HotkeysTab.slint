@@ -1,4 +1,6 @@
 import { GridBox, ComboBox } from "std-widgets.slint";
+import { ComboBoxScroll } from "../components/ComboBoxScroll.slint";
+
 export component HotkeysTab inherits VerticalLayout {
     in property <[string]> actions;
     in-out property <int> box1_1_current_index <=> box1_1.current-index;
@@ -22,15 +24,15 @@ export component HotkeysTab inherits VerticalLayout {
             height: 24px;
         }
         Row {
-            box1_1 := ComboBox {
+            box1_1 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
-            box1_2 := ComboBox {
+            box1_2 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
-            box1_3 := ComboBox {
+            box1_3 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
@@ -42,15 +44,15 @@ export component HotkeysTab inherits VerticalLayout {
             height: 24px;
         }
         Row {
-            box2_1 := ComboBox {
+            box2_1 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
-            box2_2 := ComboBox {
+            box2_2 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
-            box2_3 := ComboBox {
+            box2_3 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
@@ -62,15 +64,15 @@ export component HotkeysTab inherits VerticalLayout {
             height: 24px;
         }
         Row {
-            box3_1 := ComboBox {
+            box3_1 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
-            box3_2 := ComboBox {
+            box3_2 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
-            box3_3 := ComboBox {
+            box3_3 := ComboBoxScroll {
                 height: 40px;
                 model: actions;
             }
