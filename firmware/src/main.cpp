@@ -122,7 +122,7 @@ void loop()
   button1.tick();
   button2.tick();
 
-  if(button0.release() || button1.release()) {
+  if(button0.release() || button1.release() || button2.release()) {
     Keyboard.releaseAll();
   }
 
