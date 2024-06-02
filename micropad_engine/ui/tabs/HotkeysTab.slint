@@ -16,13 +16,13 @@ export component HotkeysTab inherits VerticalLayout {
     padding-left: 15px;
     padding-top: 15px;
 
+    // Button 1
+    Text {
+        font-size: 17px;
+        text: "Button 1 click action:";
+        height: 24px;
+    }
     GridBox {
-        // Button 1
-        Text {
-            font-size: 17px;
-            text: "Button 1 click action:";
-            height: 24px;
-        }
         Row {
             box1_1 := ComboBoxScroll {
                 height: 40px;
@@ -37,12 +37,14 @@ export component HotkeysTab inherits VerticalLayout {
                 model: actions;
             }
         }
-        // Button 2
-        Text {
-            font-size: 17px;
-            text: "Button 2 click action:";
-            height: 24px;
-        }
+    }
+    // Button 2
+    Text {
+        font-size: 17px;
+        text: "Button 2 click action:";
+        height: 24px;
+    }
+    GridBox {
         Row {
             box2_1 := ComboBoxScroll {
                 height: 40px;
@@ -57,12 +59,14 @@ export component HotkeysTab inherits VerticalLayout {
                 model: actions;
             }
         }
-        // Button 3
-        Text {
-            font-size: 17px;
-            text: "Button 3 click action:";
-            height: 24px;
-        }
+    }
+    // Button 3
+    Text {
+        font-size: 17px;
+        text: "Button 3 click action:";
+        height: 24px;
+    }
+    GridBox {
         Row {
             box3_1 := ComboBoxScroll {
                 height: 40px;
