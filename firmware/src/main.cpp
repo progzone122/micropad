@@ -71,13 +71,14 @@ void loop()
     su::Text message(serial.buf);
     int button_index = 0;
 
-    memset(settings.b1_hotkeys, 0, sizeof(settings.b1_hotkeys));
-    memset(settings.b2_hotkeys, 0, sizeof(settings.b2_hotkeys));
-    memset(settings.b3_hotkeys, 0, sizeof(settings.b3_hotkeys));
-
     for (su::TextParser message_row(message, ';'); message_row.parse();) {
       if (message_row.index() == 0) {
         command = message_row.toString();
+        if (command == "wh") {
+          memset(settings.b1_hotkeys, 0, sizeof(settings.b1_hotkeys));
+          memset(settings.b2_hotkeys, 0, sizeof(settings.b2_hotkeys));
+          memset(settings.b3_hotkeys, 0, sizeof(settings.b3_hotkeys));
+        }
       }
       if (message_row.index() > 0) {
         if (command == "wh") {
