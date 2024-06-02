@@ -6,14 +6,6 @@ class Led {
         int _pin;  // Пин, к которому подключена лента
         int _count;  // Количество светодиодов в ленте
 
-        unsigned long lastUpdate = 0;  // Время последнего обновления анимации
-        const int animationSteps = 50;  // Количество шагов в анимации
-        const int animationDelay = 20;  // Задержка в миллисекундах между шагами
-        int currentStep = 0;  // Текущий шаг анимации
-        bool animating = false;  // Флаг анимации
-        int startColor[3];  // Начальный цвет
-        int endColor[3];  // Конечный цвет
-
     public:
         Adafruit_NeoPixel strip;  // Объект управления лентой
         int brightness[5] = {100, 100, 100, 100, 100};  // Яркость

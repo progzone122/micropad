@@ -1,19 +1,55 @@
 import { GridBox, HorizontalBox, VerticalBox, LineEdit } from "std-widgets.slint";
 export component BacklightTab inherits VerticalBox {
-    in-out property <string> lineEdit_color_red_value <=> lineEdit_red.text;
-    in-out property <string> lineEdit_color_green_value <=> lineEdit_green.text;
-    in-out property <string> lineEdit_color_blue_value <=> lineEdit_blue.text;
+    // RGB 1 col
+    in-out property <string> lineEdit1_color_red_value <=> lineEdit1_red.text;
+    in-out property <string> lineEdit1_color_green_value <=> lineEdit1_green.text;
+    in-out property <string> lineEdit1_color_blue_value <=> lineEdit1_blue.text;
+    // RGB 2 col
+    in-out property <string> lineEdit2_color_red_value <=> lineEdit2_red.text;
+    in-out property <string> lineEdit2_color_green_value <=> lineEdit2_green.text;
+    in-out property <string> lineEdit2_color_blue_value <=> lineEdit2_blue.text;
+    // RGB 3 col
+    in-out property <string> lineEdit3_color_red_value <=> lineEdit3_red.text;
+    in-out property <string> lineEdit3_color_green_value <=> lineEdit3_green.text;
+    in-out property <string> lineEdit3_color_blue_value <=> lineEdit3_blue.text;
 
     padding-left: 15px;
     padding-top: 15px;
 
-    Text {
-        text: "Color when the button is pressed:";
-        font-size: 17px;
-        height: 24px;
+    VerticalBox {
+        Text {
+            text: "Color when the button is pressed:";
+            font-size: 17px;
+            height: 24px;
+        }
+        GridBox {
+            preferred-width: 100%;
+            height: 20px;
+            padding-left: 15px;
+            Row {
+                Text {
+                    text: "Button 1";
+                    color: white;
+                    font-size: 16px;
+                    horizontal-alignment: center;
+                }
+                Text {
+                    text: "Button 2";
+                    color: white;
+                    font-size: 16px;
+                    horizontal-alignment: center;
+                }
+                Text {
+                    text: "Button 3";
+                    color: white;
+                    font-size: 16px;
+                    horizontal-alignment: center;
+                }
+            }
+
+        }
     }
     HorizontalBox {
-        width: 35px;
         height: 53px;
         padding-left: 0;
         VerticalLayout {
@@ -26,17 +62,27 @@ export component BacklightTab inherits VerticalBox {
                 font-weight: 800;
             }   
         }
-        HorizontalLayout {
+        GridBox {
             preferred-width: 100%;
             preferred-height: 100%;
-            lineEdit_red := LineEdit {
-                horizontal-alignment: center;
-                placeholder-text: "000";
+            padding: 0;
+            Row {
+                lineEdit1_red := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "000";
+                }
+                lineEdit2_red := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "000";
+                }
+                lineEdit3_red := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "000";
+                }
             }
         }
     }
     HorizontalBox {
-        width: 35px;
         height: 53px;
         padding-left: 0;
         VerticalLayout {
@@ -49,17 +95,27 @@ export component BacklightTab inherits VerticalBox {
                 font-weight: 800;
             }   
         }
-        HorizontalLayout {
+        GridBox {
             preferred-width: 100%;
             preferred-height: 100%;
-            lineEdit_green := LineEdit {
-                horizontal-alignment: center;
-                placeholder-text: "000";
+            padding: 0;
+            Row {
+                lineEdit1_green := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "0-255";
+                }
+                lineEdit2_green := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "0-255";
+                }
+                lineEdit3_green := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "0-255";
+                }
             }
         }
     }
     HorizontalBox {
-        width: 35px;
         height: 53px;
         padding-left: 0;
         VerticalLayout {
@@ -72,12 +128,23 @@ export component BacklightTab inherits VerticalBox {
                 font-weight: 800;
             }   
         }
-        HorizontalLayout {
+        GridBox {
             preferred-width: 100%;
             preferred-height: 100%;
-            lineEdit_blue := LineEdit {
-                horizontal-alignment: center;
-                placeholder-text: "000";
+            padding: 0;
+            Row {
+                lineEdit1_blue := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "000";
+                }
+                lineEdit2_blue := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "000";
+                }
+                lineEdit3_blue := LineEdit {
+                    horizontal-alignment: center;
+                    placeholder-text: "000";
+                }
             }
         }
     }

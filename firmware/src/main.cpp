@@ -87,7 +87,6 @@ void loop()
               button_index = col.toInt32();
             }
             if (col.index() > 1) {
-              // Serial.println(col);
               switch (button_index) {
                 case 1:
                   strcat(settings.b1_hotkeys, ",");
@@ -112,6 +111,31 @@ void loop()
               }
             }
               
+          }
+        } else if (command == "wl") {
+          for (su::TextParser col(message_row, ','); col.parse();) {
+            Serial.println(col);
+            switch (col.index())
+            {
+              case 0:
+                button_index = col.toInt32();
+                break;
+              
+              case 1:
+                settings.colors[button_index - 1][0] = col.toInt32();
+                break;
+              
+              case 2:
+                settings.colors[button_index - 1][1] = col.toInt32();
+                break;
+              
+              case 3:
+                settings.colors[button_index - 1][2] = col.toInt32();
+                break;
+
+              default:
+                break;
+            }
           }
         }
       }
@@ -154,7 +178,7 @@ void loop()
     }
   }
   if(button1.pressing()) {
-    led.setPixelsInRange(1, 2, led.strip.Color(settings.colors[0][0], settings.colors[0][1], settings.colors[0][2]));
+    led.setPixelsInRange(1, 2, led.strip.Color(settings.colors[1][0], settings.colors[1][1], settings.colors[1][2]));
     led.setBrightness(1, 2, 100);
 
     String value[10] = {};
@@ -179,7 +203,7 @@ void loop()
     }
   }
   if(button2.pressing()) {
-    led.setPixelsInRange(0, 0, led.strip.Color(settings.colors[0][0], settings.colors[0][1], settings.colors[0][2]));
+    led.setPixelsInRange(0, 0, led.strip.Color(settings.colors[2][0], settings.colors[2][1], settings.colors[2][2]));
     led.setBrightness(0, 0, 100);
 
     String value[10] = {};

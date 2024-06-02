@@ -9,6 +9,8 @@ export component AppWindow inherits Window {
     // Device port lists
     in property <[string]> ports_combo_model;
     in-out property <string> ports_combo_value <=> tm.combo_value;
+    // Tabs
+    in-out property <int> tab_current_index <=> tab.current-index;
     // Hotkeys actions
     in property <[string]> actions;
     in-out property <int> box1_1_current_index <=> ht.box1_1_current_index;
@@ -21,9 +23,18 @@ export component AppWindow inherits Window {
     in-out property <int> box3_2_current_index <=> ht.box3_2_current_index;
     in-out property <int> box3_3_current_index <=> ht.box3_3_current_index;
     // Backlight actions
-    in-out property <string> lineEdit_color_red_value <=> bl.lineEdit_color_red_value;
-    in-out property <string> lineEdit_color_green_value <=> bl.lineEdit_color_green_value;
-    in-out property <string> lineEdit_color_blue_value <=> bl.lineEdit_color_blue_value;
+    in-out property <string> lineEdit1_color_red_value <=> bl.lineEdit1_color_red_value;
+    in-out property <string> lineEdit1_color_green_value <=> bl.lineEdit1_color_green_value;
+    in-out property <string> lineEdit1_color_blue_value <=> bl.lineEdit1_color_blue_value;
+
+    in-out property <string> lineEdit2_color_red_value <=> bl.lineEdit2_color_red_value;
+    in-out property <string> lineEdit2_color_green_value <=> bl.lineEdit2_color_green_value;
+    in-out property <string> lineEdit2_color_blue_value <=> bl.lineEdit2_color_blue_value;
+
+    in-out property <string> lineEdit3_color_red_value <=> bl.lineEdit3_color_red_value;
+    in-out property <string> lineEdit3_color_green_value <=> bl.lineEdit3_color_green_value;
+    in-out property <string> lineEdit3_color_blue_value <=> bl.lineEdit3_color_blue_value;
+    // Callbacks
     callback cl <=> tm.clicked;
 
     min-width: 400px;
@@ -36,7 +47,7 @@ export component AppWindow inherits Window {
             combo_model: ports_combo_model;
         }
         Rectangle {
-            TabWidget {
+            tab := TabWidget {
                 Tab {
                     title: "Hotkeys";
                     ht := HotkeysTab {
