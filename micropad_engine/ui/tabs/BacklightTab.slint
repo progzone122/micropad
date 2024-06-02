@@ -1,0 +1,84 @@
+import { GridBox, HorizontalBox, VerticalBox, LineEdit } from "std-widgets.slint";
+export component BacklightTab inherits VerticalBox {
+    in-out property <string> lineEdit_color_red_value <=> lineEdit_red.text;
+    in-out property <string> lineEdit_color_green_value <=> lineEdit_green.text;
+    in-out property <string> lineEdit_color_blue_value <=> lineEdit_blue.text;
+
+    padding-left: 15px;
+    padding-top: 15px;
+
+    Text {
+        text: "Color when the button is pressed:";
+        font-size: 17px;
+        height: 24px;
+    }
+    HorizontalBox {
+        width: 35px;
+        height: 53px;
+        padding-left: 0;
+        VerticalLayout {
+            alignment: center;
+            preferred-height: 100%;
+            Text {
+                text: "R:";
+                color: red;
+                font-size: 15px;
+                font-weight: 800;
+            }   
+        }
+        HorizontalLayout {
+            preferred-width: 100%;
+            preferred-height: 100%;
+            lineEdit_red := LineEdit {
+                horizontal-alignment: center;
+                placeholder-text: "000";
+            }
+        }
+    }
+    HorizontalBox {
+        width: 35px;
+        height: 53px;
+        padding-left: 0;
+        VerticalLayout {
+            alignment: center;
+            preferred-height: 100%;
+            Text {
+                text: "G:";
+                color: green;
+                font-size: 15px;
+                font-weight: 800;
+            }   
+        }
+        HorizontalLayout {
+            preferred-width: 100%;
+            preferred-height: 100%;
+            lineEdit_green := LineEdit {
+                horizontal-alignment: center;
+                placeholder-text: "000";
+            }
+        }
+    }
+    HorizontalBox {
+        width: 35px;
+        height: 53px;
+        padding-left: 0;
+        VerticalLayout {
+            alignment: center;
+            preferred-height: 100%;
+            Text {
+                text: "B:";
+                color: blue;
+                font-size: 15px;
+                font-weight: 800;
+            }   
+        }
+        HorizontalLayout {
+            preferred-width: 100%;
+            preferred-height: 100%;
+            lineEdit_blue := LineEdit {
+                horizontal-alignment: center;
+                placeholder-text: "000";
+            }
+        }
+    }
+}

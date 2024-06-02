@@ -1,13 +1,15 @@
 import { VerticalBox, HorizontalBox, Button, ComboBox, TabWidget, GridBox } from "std-widgets.slint";
 import { TopMenu } from "components/TopMenu.slint";
+
 import { HotkeysTab } from "tabs/HotkeysTab.slint";
+import { BacklightTab } from "tabs/BacklightTab.slint";
 
 export component AppWindow inherits Window {
     in property <string> window_title;
     // Device port lists
     in property <[string]> ports_combo_model;
     in-out property <string> ports_combo_value <=> tm.combo_value;
-    // Button actions
+    // Hotkeys actions
     in property <[string]> actions;
     in-out property <int> box1_1_current_index <=> ht.box1_1_current_index;
     in-out property <int> box1_2_current_index <=> ht.box1_2_current_index;
@@ -18,7 +20,10 @@ export component AppWindow inherits Window {
     in-out property <int> box3_1_current_index <=> ht.box3_1_current_index;
     in-out property <int> box3_2_current_index <=> ht.box3_2_current_index;
     in-out property <int> box3_3_current_index <=> ht.box3_3_current_index;
-    //
+    // Backlight actions
+    in-out property <string> lineEdit_color_red_value <=> bl.lineEdit_color_red_value;
+    in-out property <string> lineEdit_color_green_value <=> bl.lineEdit_color_green_value;
+    in-out property <string> lineEdit_color_blue_value <=> bl.lineEdit_color_blue_value;
     callback cl <=> tm.clicked;
 
     min-width: 400px;
@@ -40,8 +45,7 @@ export component AppWindow inherits Window {
                 }
                 Tab {
                     title: "Backlight";
-                    VerticalLayout {
-                    }
+                    bl := BacklightTab {}
                 }
             }
         }
