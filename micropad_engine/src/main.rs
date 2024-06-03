@@ -1,3 +1,4 @@
+slint::include_modules!();
 mod hotkeys;
 
 use std::rc::Rc;
@@ -7,16 +8,7 @@ use serialport::SerialPort;
 use serialport::SerialPortType::{Unknown};
 use slint::{VecModel, Weak};
 use slint::SharedString;
-slint::include_modules!();
-// fn main() {
-//     //
-//     // let mut port = serialport::new("/dev/ttyACM1", 9600)
-//     //     .timeout(Duration::from_millis(10))
-//     //     .open()
-//     //     .expect("Failed to open port");
-//     //
-//     // port.write(b"test");
-// }
+
 fn get_ports() -> Vec<SharedString> {
     let mut ports: Vec<SharedString> = vec![];
     let serial_ports = serialport::available_ports().expect("No ports found!");
@@ -120,7 +112,7 @@ fn write_backlight(app_weak: &Weak<AppWindow>) -> String {
     message
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), slint::PlatformError> {
     let hotkeys = hotkeys::get_json();
 
     let app = AppWindow::new()?;
@@ -160,7 +152,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     });
 
     app.set_window_title(SharedString::from("Pad Engine"));
-    app.run()?;
 
-    Ok(())
+    app.run()
 }

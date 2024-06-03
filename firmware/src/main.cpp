@@ -70,7 +70,7 @@ void loop()
     String command;
     su::Text message(serial.buf);
     int button_index = 0;
-
+    
     for (su::TextParser message_row(message, ';'); message_row.parse();) {
       if (message_row.index() == 0) {
         command = message_row.toString();
