@@ -78,7 +78,7 @@ pub const HOTKEYS: &str = r#"{
   "0xC6": "F5",
   "0xC7": "F6",
   "0xC8": "F7",
-  "0xC9": "F8"
+  "0xC9": "F8",
   "0xCA": "F9",
   "0xCB": "F10",
   "0xCC": "F11",
